@@ -21,17 +21,14 @@ export const FloatingNav = ({
   className?: string;
 }) => {
   const { scrollYProgress } = useScroll();
-
-  // set true for the initial state so that nav bar is visible in the hero section
+  const [activeItem, setActiveItem] = useState(-1);
   const [visible, setVisible] = useState(true);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Check if current is not undefined and is a number
     if (typeof current === "number") {
       let direction = current! - scrollYProgress.getPrevious()!;
 
       if (scrollYProgress.get() < 0.05) {
-        // also set true for the initial state
         setVisible(true);
       } else {
         if (direction < 0) {
@@ -58,16 +55,13 @@ export const FloatingNav = ({
           duration: 0.2,
         }}
         className={cn(
-          // change rounded-full to rounded-lg
-          // remove dark:border-white/[0.2] dark:bg-black bg-white border-transparent
-          // change  pr-2 pl-8 py-2 to px-10 py-5
-          "flex max-w-fit md:min-w-[70vw] lg:min-w-fit fixed z-[5000] top-10 inset-x-0 mx-auto px-10 py-5 rounded-lg border border-black/.1 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] items-center justify-center space-x-4",
+          // Improved container styling with better spacing
+          "flex md:min-w-[70vw] lg:min-w-fit fixed z-[5000] top-6 inset-x-0 mx-auto px-6 py-3 rounded-full border border-black/.1 shadow-2xl items-center justify-between bg-black/50 backdrop-blur-sm max-w-xl",
           className
         )}
         style={{
           backdropFilter: "blur(16px) saturate(180%)",
-          backgroundColor: "rgba(17, 25, 40, 0.75)",
-          borderRadius: "12px",
+          backgroundColor: "rgba(17, 25, 40, 0.85)",
           border: "1px solid rgba(255, 255, 255, 0.125)",
         }}
       >
@@ -76,20 +70,32 @@ export const FloatingNav = ({
             key={`link=${idx}`}
             href={navItem.link}
             className={cn(
-              "relative dark:text-neutral-50 items-center  flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
+              // Improved padding and centering for all items
+              "relative text-neutral-50 items-center flex flex-col p-1 rounded-full",
+              "hover:bg-white/10 hover:text-blue-400 min-w-[80px] transition-all duration-300",
+              activeItem === idx ? "bg-white/20" : ""
             )}
+            onClick={() => setActiveItem(idx)}
           >
-            <span className="block sm:hidden">{navItem.icon}</span>
-            {/* add !cursor-pointer */}
-            {/* remove hidden sm:block for the mobile responsive */}
-            <span className=" text-sm !cursor-pointer">{navItem.name}</span>
+            <span className="flex items-center justify-center mb-1">
+              {navItem.icon}
+            </span>
+            <span className="text-sm font-medium px-2 py-1 !cursor-pointer text-center">
+              {navItem.name}
+            </span>
+            {activeItem === idx ? (
+              <motion.span
+                className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 -z-10"
+                layoutId="activeItem"
+                transition={{
+                  type: "spring",
+                  stiffness: 380,
+                  damping: 30,
+                }}
+              />
+            ) : null}
           </Link>
         ))}
-        {/* remove this login btn */}
-        {/* <button className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
-          <span>Login</span>
-          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
-        </button> */}
       </motion.div>
     </AnimatePresence>
   );

@@ -13,10 +13,18 @@ import { FloatingNav } from "@/components/ui/FloatingNavbar";
 
 const Home = () => {
   return (
-    <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
-      <div className="max-w-7xl w-full">
+    <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden">
+      {/* FloatingNav should be positioned absolutely to not affect layout */}
+      {/* Show only on large screens and above */}
+      {/* <div className="hidden lg:block">
         <FloatingNav navItems={navItems} />
-        <Hero />
+      </div> */}
+
+      {/* Hero section - full width, no constraints */}
+      <Hero />
+
+      {/* Other sections with proper container */}
+      <div className="max-w-7xl w-full px-4 sm:px-10">
         <Grid />
         <RecentProjects />
         <Clients />
