@@ -16,9 +16,9 @@ const Home = () => {
     <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden">
       {/* FloatingNav should be positioned absolutely to not affect layout */}
       {/* Show only on large screens and above */}
-      {/* <div className="hidden lg:block">
+      <div className="hidden lg:block">
         <FloatingNav navItems={navItems} />
-      </div> */}
+      </div>
 
       {/* Hero section - full width, no constraints */}
       <Hero />
