@@ -655,7 +655,7 @@ export function PortfolioTechOrbit() {
             })}
           </div>
 
-          {/* Background Glow - scaled up */}
+          {/* Background Glow - scaled up... */}
           <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-60 sm:w-75 sm:h-75 lg:w-100 lg:h-100 bg-gradient-radial from-blue-500/30 via-purple-500/20 to-transparent rounded-full blur-3xl pointer-events-none"
             style={{
