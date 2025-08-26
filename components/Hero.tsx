@@ -1,3 +1,5 @@
+"use client";
+
 import { FaRocket } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 // import MagicButton from "./MagicButton";
