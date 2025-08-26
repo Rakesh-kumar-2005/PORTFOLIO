@@ -19,7 +19,7 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 mx-auto min-h-[200vh] w-full",
+        "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 mx-auto min-h-[180vh] w-full",
         className
       )}
     >
@@ -79,7 +79,7 @@ export const BentoGridItem = ({
     <div
       ref={targetRef}
       className={cn(
-        `row-span-1 relative overflow-hidden rounded-3xl border border-white/20 group/bento hover:shadow-xl transition-all duration-500 hover:shadow-fuchsia-400/20 shadow-sm justify-between hover:scale-105 flex flex-col space-y-4 ${
+        `row-span-1 relative  overflow-hidden rounded-3xl border border-white/20 group/bento hover:shadow-xl transition-all duration-500 hover:shadow-fuchsia-400/20 shadow-sm justify-between hover:scale-105 flex flex-col space-y-4 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`,
         className
@@ -136,7 +136,7 @@ export const BentoGridItem = ({
           <div
             className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10 ${
               id == 4 &&
-              "translate-y-0 sm:-translate-y-[200px] md:-translate-y-[280px] lg:-translate-y-[360px]"
+              "translate-y-0 sm:-translate-y-[200px] md:-translate-y-[280px] lg:-translate-y-[340px]"
             } ${
               id == 5 &&
               "translate-x-0 sm:translate-x-[30px] md:translate-x-[35px] lg:translate-x-[48px]"

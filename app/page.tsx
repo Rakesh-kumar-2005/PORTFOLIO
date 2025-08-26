@@ -27,7 +27,6 @@ const Home = () => {
       <div className="max-w-7xl w-full px-4 sm:px-10">
         <Grid />
         <RecentProjects />
-        <Clients />
         <Experience />
         <Approach />
         <Footer />
