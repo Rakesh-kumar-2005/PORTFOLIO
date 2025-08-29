@@ -543,7 +543,7 @@ export function PortfolioTechOrbit() {
 
                       {/* Tooltip */}
                       <div
-                        className={`pointer-events-none absolute opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/90 backdrop-blur-sm px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg shadow-xl text-sm font-semibold ${i === 0 ? 'text-white' : i === 1 ? 'text-blue-400' : i === 2 ? 'text-emerald-400' : i === 3 ? 'text-blue-500' : 'text-orange-400'} whitespace-nowrap border border-white/20`}
+                        className={`pointer-events-none absolute opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/90 backdrop-blur-sm px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg shadow-xl text-sm font-semibold ${i === 0 ? 'text-white border border-white/40' : i === 1 ? 'text-blue-400 border border-blue-400/40' : i === 2 ? 'text-emerald-400 border border-emerald-400/40' : i === 3 ? 'text-blue-500  border border-blue-500/40' : 'text-orange-400 border border-orange-400/40'} whitespace-nowrap`}
                         style={{
                           top: `${-Math.min(60, screenWidth * 0.11)}px`,
                           left: "50%",
