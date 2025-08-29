@@ -329,7 +329,7 @@ export function PortfolioTechOrbit() {
       ),
     },
     {
-      name: "AWS Cloud",
+      name: "Cloud Computing",
       color: "bg-gradient-to-br from-orange-400 to-orange-600",
       svg: (
         <svg
