@@ -220,7 +220,7 @@ export default function CopyEmailButton({ id }: { id: number }) {
   id === 7 && (
     <div className="mt-5 relative flex flex-col items-center">
       {/* Button */}
-      <div className="relative text-[3px] sm:text-[3px] md:text-[14px] cursor-pointer">
+      <div className="relative text-[5px] sm:text-[10px] md:text-[10px] cursor-pointer">
         <MagicButton
           title={copied ? "Email is Copied!" : "Copy my email address"}
           icon={
@@ -233,8 +233,8 @@ export default function CopyEmailButton({ id }: { id: number }) {
           position="left"
           handleClick={handleCopy}
           otherClasses={`!bg-[#161A31] border transition-all duration-300 transform cursor-pointer
-            text-[3px] sm:text-[3px] md:text-[14px]
-            px-1 sm:px-1.5 py-0.5 sm:py-1
+            text-[10px] sm:text-[10px] md:text-[14px]
+            px-1 sm:px-1.5 py-0.5
             ${
               copied
                 ? "border-green-400 shadow-md shadow-green-400/25"
