@@ -2,6 +2,7 @@
 
 import Grid from "@/components/Grid";
 import Hero from "@/components/Hero";
+import RecentProjects from "@/components/RecentProjects";
 
 export default function Home() {
   return (
@@ -15,7 +16,8 @@ export default function Home() {
       {/* Other sections with proper container */}
       <div className="max-w-[1460px] w-full px-4 sm:px-28">
         <Grid />
-        {/* <RecentProjects />
+        <RecentProjects />
+        {/* 
         <Experience />
         <Approach />
         <Footer /> */}
