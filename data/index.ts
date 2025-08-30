@@ -39,7 +39,7 @@ export const gridItems = [
   },
   {
     id: 4,
-    title: "My Expertise lies in",
+    title: "My Expertise",
     description: "",
     className: "lg:col-span-2 lg:row-span-3 md:col-span-5 md:row-span-2",
     imgClassName: "absolute object-cover w-full h-full",
@@ -51,11 +51,11 @@ export const gridItems = [
   {
     id: 5,
     title:
-      "Fascinated by emerging tech innovations and exploring creative solutions.",
+      "Exploring emerging tech and creative solutions",
     description: "",
     className: "lg:col-span-3 lg:row-span-3 md:col-span-5 md:row-span-4",
     imgClassName: "absolute object-cover object-center w-full h-full",
-    titleClassName: "flex justify-start items-end ",
+    titleClassName: "flex justify-end items-end",
     img: "/tech.jpg",
     spareImg: "",
   },
