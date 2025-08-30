@@ -10,17 +10,15 @@ export const gridItems = [
     id: 1,
     title:
       "I prioritize continuous learning and independent skill development over following trends",
-    description: "",
     className: "lg:col-span-3 lg:row-span-3 md:col-span-5 md:row-span-3",
     imgClassName: "w-full h-full",
-    titleClassName: "justify-end",
+    titleClassName: "flex justify-end items-end",
     img: "/dev1.gif",
     spareImg: "",
   },
   {
     id: 2,
     title: "I'm very flexible with time zone communications",
-    description: "",
     className: "lg:col-span-2 lg:row-span-2 md:col-span-5 md:row-span-2",
     imgClassName: "object-cover w-full h-full",
     titleClassName: "justify-start",
@@ -30,7 +28,6 @@ export const gridItems = [
   {
     id: 3,
     title: "Tech enthusiast with a passion for development.",
-    description: "",
     className: "lg:col-span-2 lg:row-span-1 md:col-span-5 md:row-span-1",
     imgClassName: "",
     titleClassName: "justify-end",
@@ -40,7 +37,6 @@ export const gridItems = [
   {
     id: 4,
     title: "My Expertise",
-    description: "",
     className: "lg:col-span-2 lg:row-span-3 md:col-span-5 md:row-span-2",
     imgClassName: "absolute object-cover w-full h-full",
     titleClassName: "justify-end",
@@ -52,7 +48,6 @@ export const gridItems = [
     id: 5,
     title:
       "Exploring emerging tech and creative solutions",
-    description: "",
     className: "lg:col-span-3 lg:row-span-3 md:col-span-5 md:row-span-4",
     imgClassName: "absolute object-cover object-center w-full h-full",
     titleClassName: "flex justify-end items-end",
@@ -62,7 +57,6 @@ export const gridItems = [
   {
     id: 6,
     title: "Exploring Cloud Technologies",
-    description: "",
     className: "lg:col-span-3 lg:row-span-1 md:col-span-5 md:row-span-1",
     imgClassName: "absolute object-cover w-full h-full",
     titleClassName: "justify-start",
@@ -73,7 +67,6 @@ export const gridItems = [
   {
     id: 7,
     title: "Do you want to start a project together?",
-    description: "",
     className: "lg:col-span-2 lg:row-span-1 md:col-span-5 md:row-span-1",
     imgClassName: "",
     titleClassName: "justify-center md:max-w-full max-w-60 text-center",

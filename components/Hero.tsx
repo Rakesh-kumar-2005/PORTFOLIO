@@ -7,10 +7,10 @@ import { Spotlight } from "./ui/Spotlight";
 // import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 
 const Hero = () => {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const handleMouseMove = (e: { clientX: number; clientY: number; }) => {
+    const handleMouseMove = (e: { clientX: number; clientY: number }) => {
       setMousePosition({
         x: (e.clientX / window.innerWidth - 0.5) * 30,
         y: (e.clientY / window.innerHeight - 0.5) * 30,
@@ -21,7 +21,7 @@ const Hero = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-    // for a little delay in visibility of the screen contents...
+  // for a little delay in visibility of the screen contents...
   const [textVisible, setTextVisible] = useState(false);
 
   useEffect(() => {
@@ -51,8 +51,6 @@ const Hero = () => {
           className="bottom-24 right-96 h-[90vh] w-[90vw]"
           fill="rgba(152, 114, 240, 0.75)" // Neon Violet
         />
-       
-       
       </div>
 
       {/* Grids... */}
@@ -70,9 +68,9 @@ const Hero = () => {
         className="relative z-10 min-h-screen w-full"
         style={{ transform: "scale(0.8)", transformOrigin: "center" }}
       >
-        <div className="relative z-10 min-h-screen w-full flex flex-col lg:grid lg:grid-cols-2">
+        <div className="relative z-10 min-h-screen w-full flex gap-3 flex-col sm:gap-10 lg:grid lg:grid-cols-2">
           {/* Left Side - Content */}
-          <div className="flex flex-col justify-center items-center lg:items-start px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 space-y-6 sm:space-y-8 lg:space-y-10 text-center lg:text-left mt-8 sm:mt-12 lg:mt-16 xl:mt-20 2xl:mt-0 order-2 xl:order-1">
+          <div className="flex flex-col justify-center items-center lg:items-start px-4 sm:px-6 lg:px-2 xl:px-12 2xl:px-16 space-y-6 sm:space-y-6 lg:space-y-8 text-center lg:text-left mt-8 sm:mt-12 lg:mt-12 xl:mt-20 2xl:mt-0 order-2 xl:order-1">
             {/* Heading Section */}
             <div
               className={`transition-all duration-1000 ${
@@ -82,22 +80,26 @@ const Hero = () => {
               }`}
             >
               {/* Main Title */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black mb-4 sm:mb-6 lg:mb-8 leading-tight tracking-tight">
-                <span className={`bg-gradient-to-r from-blue-400 via-fuchsia-500 to-cyan-400 bg-clip-text text-transparent bg-[length:200%_100%] ${styles['animate-gradient-x']}`}>
+              <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black mb-4 sm:mb-6 lg:mb-6 leading-tight tracking-tight">
+                <span
+                  className={`bg-gradient-to-r from-blue-400 via-fuchsia-500 to-cyan-400 bg-clip-text text-transparent bg-[length:200%_100%] ${styles["animate-gradient-x"]}`}
+                >
                   Rakesh Kumar Mohanty
                 </span>
               </h1>
               {/* Professional Title */}
               <div className="mb-6 sm:mb-8 lg:mb-10">
-                <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-white/90 mb-2 sm:mb-3">
-                  Full-Stack Developer & Cloud Analyst
+                <h2 className="text-xl sm:text-2xl lg:text-2xl xl:text-4xl font-bold text-white/90 mb-2 sm:mb-3">
+                  Cloud And DevOPS Engineer
                 </h2>
-                <div className="w-16 sm:w-20 lg:w-24 h-1 bg-gradient-to-r from-cyan-400 to-fuchsia-500 mx-auto lg:mx-0 rounded-full"></div>
+                <div
+                  className={`w-16 sm:w-20 lg:w-28 h-1 bg-gradient-to-r from-cyan-400 to-fuchsia-500 mx-auto lg:mx-0 rounded-xl bg-[length:200%_100%] ${styles["animate-gradient-x"]}`}
+                ></div>
               </div>
 
               {/* Main Description */}
               <div className="space-y-4 sm:space-y-5 lg:space-y-6 mb-8 sm:mb-10 lg:mb-12">
-                <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-gray-300 leading-relaxed max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto lg:mx-0">
+                <p className="text-base sm:text-lg lg:text-lg xl:text-2xl text-gray-300 leading-relaxed max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto lg:mx-0">
                   Passionate{" "}
                   <span className="text-blue-400 font-semibold">
                     full-stack developer
@@ -110,7 +112,7 @@ const Hero = () => {
                   integrate cutting-edge technology with innovative design.
                 </p>
 
-                <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-400 leading-relaxed max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto lg:mx-0">
+                <p className="text-sm sm:text-base lg:text-md xl:text-xl text-gray-400 leading-relaxed max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto lg:mx-0">
                   Proficient in{" "}
                   <span className="text-cyan-400 font-medium">
                     React & Next.js
@@ -130,7 +132,7 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div
-              className={`flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start ${styles.fadeInUpButtons}`}
+              className={`flex justify-center lg:justify-start ${styles.fadeInUpButtons}`}
             >
               <a href="#about" className="group">
                 <div className="relative inline-flex h-12 sm:h-14 lg:h-16 overflow-hidden group rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 transition-all duration-500 hover:scale-110 hover:shadow-lg hover:shadow-fuchsia-400/50">
@@ -153,7 +155,7 @@ const Hero = () => {
               </div>
               <div className="flex items-center gap-2">
                 <svg
-                  className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400"
+                  className="w-4 h-4 sm:w-5 sm:h-5 animate-pulse text-blue-400"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -177,7 +179,7 @@ const Hero = () => {
           </div>
 
           {/* Right Side - Tech Orbit */}
-          <div className="order-2 xl:order-2 min-h-[50vh] sm:min-h-[60vh] lg:min-h-[70vh] xl:min-h-[75vh] 2xl:min-h-screen pt-8 sm:pt-12 lg:pt-16 xl:pt-20 2xl:pt-0">
+          <div className="order-2 xl:order-2 lg:order-2 min-h-[50vh] sm:min-h-[50vh] lg:min-h-[100vh] xl:min-h-[75vh] 2xl:min-h-screen pt-8 sm:pt-8 lg:pt-10 xl:pt-20 2xl:pt-0">
             <PortfolioTechOrbit />
           </div>
         </div>
@@ -187,7 +189,6 @@ const Hero = () => {
 };
 
 export default Hero;
-
 
 export function PortfolioTechOrbit() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -235,7 +236,7 @@ export function PortfolioTechOrbit() {
   useEffect(() => {
     if (!isClient) return;
 
-    const handleMouseMove = (e: { clientX: number; clientY: number; }) => {
+    const handleMouseMove = (e: { clientX: number; clientY: number }) => {
       const x = (e.clientX - window.innerWidth / 2) / window.innerWidth;
       const y = (e.clientY - window.innerHeight / 2) / window.innerHeight;
       // Reduce mouse effect on smaller screens
@@ -348,7 +349,7 @@ export function PortfolioTechOrbit() {
     return (
       <div className="w-full h-full flex items-center justify-center p-2 sm:p-4">
         <div className="relative flex items-center justify-center w-full h-full">
-          <div className="animate-pulse bg-gray-300 rounded-full w-32 h-32"></div>
+          <div className="animate-pulse bg-gradient-to-br from-white/80 to-white rounded-full w-32 h-32"></div>
         </div>
       </div>
     );
@@ -494,7 +495,7 @@ export function PortfolioTechOrbit() {
             </div>
           </div>
 
-          {/* Orbiting Tech Stack with Counter-Rotation */}
+          {/* Orbiting Tech Stack with Counter-Rotation and Responsive Radius */}
           <div
             className="absolute inset-0 z-50 transition-transform duration-300 ease-out"
             style={{
@@ -505,8 +506,19 @@ export function PortfolioTechOrbit() {
           >
             {techStack.map((tech, i) => {
               const angle = (i * 360) / techStack.length;
-              const x = Math.cos((angle * Math.PI) / 180) * radius;
-              const y = Math.sin((angle * Math.PI) / 180) * radius;
+
+              // Responsive radius calculation
+              const responsiveRadius =
+                screenWidth < 640
+                  ? Math.max(radius * 1.6, 140) // Mobile: increase radius significantly
+                  : screenWidth < 768
+                  ? Math.max(radius * 1.5, 120) // Tablet: moderate increase
+                  : screenWidth < 1024
+                  ? Math.max(radius * 1.2, 100) // Small desktop: slight increase
+                  : radius; // Large screens: use original radius
+
+              const x = Math.cos((angle * Math.PI) / 180) * responsiveRadius;
+              const y = Math.sin((angle * Math.PI) / 180) * responsiveRadius;
 
               return (
                 <div
@@ -543,7 +555,17 @@ export function PortfolioTechOrbit() {
 
                       {/* Tooltip */}
                       <div
-                        className={`pointer-events-none absolute opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/90 backdrop-blur-sm px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg shadow-xl text-sm font-semibold ${i === 0 ? 'text-white border border-white/40' : i === 1 ? 'text-blue-400 border border-blue-400/40' : i === 2 ? 'text-emerald-400 border border-emerald-400/40' : i === 3 ? 'text-blue-500  border border-blue-500/40' : 'text-orange-400 border border-orange-400/40'} whitespace-nowrap`}
+                        className={`pointer-events-none absolute opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/90 backdrop-blur-sm px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg shadow-xl text-sm font-semibold ${
+                          i === 0
+                            ? "text-white border border-white/40"
+                            : i === 1
+                            ? "text-blue-400 border border-blue-400/40"
+                            : i === 2
+                            ? "text-emerald-400 border border-emerald-400/40"
+                            : i === 3
+                            ? "text-blue-500  border border-blue-500/40"
+                            : "text-orange-400 border border-orange-400/40"
+                        } whitespace-nowrap`}
                         style={{
                           top: `${-Math.min(60, screenWidth * 0.11)}px`,
                           left: "50%",
@@ -559,7 +581,6 @@ export function PortfolioTechOrbit() {
               );
             })}
           </div>
-
           {/* Background Glow - scaled up... */}
           <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-60 sm:w-75 sm:h-75 lg:w-100 lg:h-100 bg-gradient-radial from-blue-500/30 via-purple-500/20 to-transparent rounded-full blur-3xl pointer-events-none"

@@ -1,18 +1,13 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { IoCheckmark, IoCopyOutline, IoThumbsUp } from "react-icons/io5";
-import Lottie from "react-lottie";
+import { useState } from "react";
+import { IoCheckmark, IoCopyOutline } from "react-icons/io5";
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
-import animationData from "@/data/confetti.json";
 import MagicButton from "./MagicButton";
 import useIntersectionObserver from "./use-intersection-observer";
-import { FaThumbsUp } from "react-icons/fa6";
-import { BsHandThumbsUp } from "react-icons/bs";
-import { MdThumbUp } from "react-icons/md";
-import { HiOutlineThumbUp, HiThumbUp } from "react-icons/hi";
+import { HiOutlineThumbUp } from "react-icons/hi";
 
 export const BentoGrid = ({
   className,
@@ -24,7 +19,7 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 mx-auto min-h-[180vh] w-full",
+        "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-5 mx-auto min-h-[170vh] w-full",
         className
       )}
     >
@@ -37,7 +32,6 @@ export const BentoGridItem = ({
   className,
   id,
   title,
-  description,
   img,
   imgClassName,
   titleClassName,
@@ -47,7 +41,6 @@ export const BentoGridItem = ({
   className?: string;
   id: number;
   title?: string | React.ReactNode;
-  description?: string | React.ReactNode;
   img?: string;
   imgClassName?: string;
   titleClassName?: string;
@@ -59,33 +52,13 @@ export const BentoGridItem = ({
 
   const [isHovered, setIsHovered] = useState(false);
   const [targetRef, isVisible] = useIntersectionObserver({ threshold: 0.3 });
-  const [copied, setCopied] = useState(false);
 
-  const defaultOptions = {
-    loop: copied,
-    autoplay: copied,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText("yourmail@example.com").then(() => {
-      setCopied(true);
-
-      // reset after delay so animations can replay next time
-      setTimeout(() => {
-        setCopied(false);
-      }, 2000);
-    });
-  };
 
   return (
     <div
       ref={targetRef}
       className={cn(
-        `row-span-1 relative  overflow-hidden rounded-3xl border border-white/20 group/bento hover:shadow-xl transition-all duration-500 hover:shadow-fuchsia-400/20 shadow-sm justify-between hover:scale-105 flex flex-col space-y-4 ${
+        `row-span-1 relative overflow-hidden rounded-2xl border border-white/20 hover:border-white/40 group/bento hover:shadow-xl transition-all duration-500 hover:shadow-fuchsia-400/20 shadow-sm justify-between hover:scale-105 flex flex-col space-y-4 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`,
         className
@@ -104,15 +77,13 @@ export const BentoGridItem = ({
             <img
               src={img}
               alt={img}
-              className={cn(imgClassName, "object-cover object-center ")}
+              className={cn(imgClassName, "object-cover object-center")}
             />
           )}
         </div>
 
         <div
-          className={`absolute right-0 -bottom-5 ${
-            id === 5 && "w-full opacity-80"
-          }`}
+          className={`absolute right-0 -bottom-5 `}
         >
           {spareImg && (
             <img
@@ -134,18 +105,12 @@ export const BentoGridItem = ({
         <div
           className={cn(
             titleClassName,
-            "group-hover/bento:translate-x-2 transition duration-500 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10"
+            "group-hover/bento:translate-x-2 transition duration-500 relative md:h-full min-h-40 flex flex-col px-2 lg:p-5"
           )}
         >
-          <div className="font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">
-            {description}
-          </div>
 
           <div
-            className={`font-sans text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-72 xs:max-w-80 sm:max-w-96 font-bold z-10  ${
-              id == 3 &&
-              "translate-y-0 xs:translate-y-[4px] sm:translate-y-[8px] md:translate-y-[15px] lg:translate-y-[24px]"
-            }`}
+            className={`font-sans text-base xs:text-lg sm:text-sm md:text-lg lg:text-xl max-w-72 xs:max-w-80 sm:max-w-96 font-bold z-10 `}
           >
             {title}
           </div>
@@ -160,8 +125,7 @@ export const BentoGridItem = ({
                 {leftLists.map((item, i) => (
                   <span
                     key={i}
-                    className={`lg:py-4 lg:px-3 py-2 px-3 hover:scale-105 duration-300 transition-all text-xs lg:text-base opacity-50 
-                    lg:opacity-100 rounded-lg text-center bg-[#10132E] ${
+                    className={`lg:py-3 lg:px-3 py-2 px-3 hover:scale-105 duration-300 transition-all text-[10px] lg:text-sm rounded-lg text-center bg-[#10132E] ${
                       i === 0
                         ? "hover:bg-gradient-to-br from-cyan-400 to-blue-500"
                         : i === 1
@@ -174,15 +138,14 @@ export const BentoGridItem = ({
                     {item}
                   </span>
                 ))}
-                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-transparent"></span>
+                <span className="lg:py-1 lg:px-3 py-1 px-3 rounded-lg text-center bg-transparent"></span>
               </div>
               <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
-                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center "></span>
+                <span className="lg:py-1 lg:px-3 py-1 px-3 rounded-lg text-center "></span>
                 {rightLists.map((item, i) => (
                   <span
                     key={i}
-                    className={`lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
-                    lg:opacity-100 rounded-lg text-center hover:scale-105 duration-300 transition-all bg-[#10132E] ${
+                    className={`lg:py-3 lg:px-3 py-2 px-3 rounded-lg text-center hover:scale-105 duration-300 text-[10px] lg:text-sm transition-all bg-[#10132E] ${
                       i === 0
                         ? "hover:bg-gradient-to-br from-green-500 to-emerald-600"
                         : i === 1
