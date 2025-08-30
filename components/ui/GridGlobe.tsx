@@ -396,7 +396,7 @@ const GridGlobe = () => {
 
   return (
     // Changed: Removed -left-5 and used proper centering
-    <div className="flex items-center justify-center absolute inset-0 top-36 md:top-40">
+    <div className="flex items-center justify-center absolute inset-0 top-48 md:top-40">
       {/* Changed: Better responsive sizing and centering */}
       <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-96 px-4 flex items-center justify-center">
         <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />
