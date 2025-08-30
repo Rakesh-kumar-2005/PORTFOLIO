@@ -233,7 +233,7 @@ export default function CopyEmailButton({ id }: { id: number }) {
           position="left"
           handleClick={handleCopy}
           otherClasses={`!bg-[#161A31] border transition-all duration-300 transform cursor-pointer
-            text-[8px] sm:text-[8px] md:text-[14px]
+            text-[5px] sm:text-[5px] md:text-[14px]
             px-1 sm:px-1.5 py-0.5 sm:py-1
             ${
               copied
