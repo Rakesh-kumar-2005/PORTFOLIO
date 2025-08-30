@@ -1,5 +1,6 @@
 "use client";
 
+import Grid from "@/components/Grid";
 import Hero from "@/components/Hero";
 
 export default function Home() {
@@ -12,13 +13,13 @@ export default function Home() {
       {/* Hero section - full width, no constraints */}
       <Hero />
       {/* Other sections with proper container */}
-      {/* <div className="max-w-7xl w-full px-4 sm:px-10">
+      <div className="max-w-7xl w-full px-4 sm:px-10">
         <Grid />
-        <RecentProjects />
+        {/* <RecentProjects />
         <Experience />
         <Approach />
-        <Footer />
-      </div> */}
+        <Footer /> */}
+      </div>
     </main>
   );
 }
