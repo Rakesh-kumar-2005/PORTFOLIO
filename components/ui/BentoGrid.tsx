@@ -53,7 +53,6 @@ export const BentoGridItem = ({
   const [isHovered, setIsHovered] = useState(false);
   const [targetRef, isVisible] = useIntersectionObserver({ threshold: 0.3 });
 
-
   return (
     <div
       ref={targetRef}
@@ -82,9 +81,7 @@ export const BentoGridItem = ({
           )}
         </div>
 
-        <div
-          className={`absolute right-0 -bottom-5 `}
-        >
+        <div className={`absolute right-0 -bottom-5 `}>
           {spareImg && (
             <img
               src={spareImg}
@@ -105,10 +102,9 @@ export const BentoGridItem = ({
         <div
           className={cn(
             titleClassName,
-            "group-hover/bento:translate-x-2 transition duration-500 relative md:h-full min-h-40 flex flex-col px-2 lg:p-5"
+            "group-hover/bento:translate-x-2 transition duration-500 relative md:h-full min-h-40 flex flex-col px-2 py-1 lg:p-5"
           )}
         >
-
           <div
             className={`font-sans text-base xs:text-lg sm:text-sm md:text-lg lg:text-xl max-w-72 xs:max-w-80 sm:max-w-96 font-bold z-10 `}
           >
@@ -119,7 +115,7 @@ export const BentoGridItem = ({
 
           {id === 4 && (
             <div
-              className={`flex gap-1 lg:gap-5 w-fit absolute right-2 lg:right-4`}
+              className={`flex gap-3 lg:gap-5 w-fit absolute right-2 lg:right-5 top-4 sm:top-6 md:top-8 lg:top-3`}
             >
               <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
                 {leftLists.map((item, i) => (
@@ -129,7 +125,7 @@ export const BentoGridItem = ({
                       i === 0
                         ? "hover:bg-gradient-to-br from-cyan-400 to-blue-500"
                         : i === 1
-                        ? "hover:bg-gradient-to-br from-black-100 to-black"
+                        ? "hover:bg-gradient-to-br from-black-100 to-black border hover:border-white/50"
                         : i === 2
                         ? "hover:bg-gradient-to-br from-blue-600 to-blue-800"
                         : "hover:bg-gradient-to-br from-cyan-400 to-cyan-500"
@@ -138,10 +134,12 @@ export const BentoGridItem = ({
                     {item}
                   </span>
                 ))}
-                <span className="lg:py-1 lg:px-3 py-1 px-3 rounded-lg text-center bg-transparent"></span>
+                {/* Conditional spacer - only show on large screens */}
+                <span className="hidden lg:block lg:py-1 lg:px-3 rounded-lg text-center bg-transparent"></span>
               </div>
               <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
-                <span className="lg:py-1 lg:px-3 py-1 px-3 rounded-lg text-center "></span>
+                {/* Conditional spacer - only show on large screens */}
+                <span className="hidden lg:block lg:py-1 lg:px-3 rounded-lg text-center"></span>
                 {rightLists.map((item, i) => (
                   <span
                     key={i}
@@ -180,22 +178,22 @@ export default function CopyEmailButton({ id }: { id: number }) {
   };
 
   return (
-  id === 7 && (
-    <div className="mt-5 relative flex flex-col items-center">
-      {/* Button */}
-      <div className="relative text-[5px] sm:text-[10px] md:text-[10px] cursor-pointer">
-        <MagicButton
-          title={copied ? "Email is Copied!" : "Copy my Email"}
-          icon={
-            copied ? (
-              <IoCheckmark className="text-green-400 text-[13px] sm:text-[13px] md:text-[16px]" />
-            ) : (
-              <IoCopyOutline className="text-[13px] sm:text-[13px] md:text-[16px]" />
-            )
-          }
-          position="left"
-          handleClick={handleCopy}
-          otherClasses={`!bg-[#161A31] border transition-all duration-300 transform cursor-pointer
+    id === 7 && (
+      <div className="mt-5 relative flex flex-col items-center">
+        {/* Button */}
+        <div className="relative text-[5px] sm:text-[10px] md:text-[10px] cursor-pointer">
+          <MagicButton
+            title={copied ? "Email is Copied!" : "Copy my Email"}
+            icon={
+              copied ? (
+                <IoCheckmark className="text-green-400 text-[13px] sm:text-[13px] md:text-[16px]" />
+              ) : (
+                <IoCopyOutline className="text-[13px] sm:text-[13px] md:text-[16px]" />
+              )
+            }
+            position="left"
+            handleClick={handleCopy}
+            otherClasses={`!bg-[#161A31] border transition-all duration-300 transform cursor-pointer
             text-[10px] sm:text-[10px] md:text-[14px]
             px-1 sm:px-1.5 py-0.5
             ${
@@ -203,30 +201,29 @@ export default function CopyEmailButton({ id }: { id: number }) {
                 ? "border-green-400 shadow-md shadow-green-400/25"
                 : "border-transparent hover:border-purple-400 hover:shadow-md hover:shadow-purple-400/25"
             }`}
-        />
-      </div>
+          />
+        </div>
 
-      {/* Tooltip */}
-      <div
-        className={`absolute top-full mt-2 left-1/2 transform -translate-x-1/2 transition-all duration-300 ${
-          copied
-            ? "opacity-100 scale-100 translate-y-0"
-            : "opacity-0 scale-0 translate-y-2 pointer-events-none"
-        }`}
-      >
-        <div className="bg-black text-[10px] sm:text-[10px] md:text-[12px] px-1.5 py-0.5 rounded-md shadow-md border border-green-400/40 relative">
-          <div className="flex items-center gap-0.5">
-            <HiOutlineThumbUp className="text-green-400 text-[10px] sm:text-[10px] md:text-[12px]" />
-            <span>Let&apos;s Connect!</span>
-          </div>
-          {/* Small arrow */}
-          <div className="absolute -top-1 left-1/2 transform -translate-x-1/2">
-            <div className="w-2 h-2 bg-gray-800 rotate-45 border-l border-t border-green-400/40"></div>
+        {/* Tooltip */}
+        <div
+          className={`absolute top-full mt-2 left-1/2 transform -translate-x-1/2 transition-all duration-300 ${
+            copied
+              ? "opacity-100 scale-100 translate-y-0"
+              : "opacity-0 scale-0 translate-y-2 pointer-events-none"
+          }`}
+        >
+          <div className="bg-black text-[10px] sm:text-[10px] md:text-[12px] px-1.5 py-0.5 rounded-md shadow-md border border-green-400/40 relative">
+            <div className="flex items-center gap-0.5">
+              <HiOutlineThumbUp className="text-green-400 text-[10px] sm:text-[10px] md:text-[12px]" />
+              <span>Let&apos;s Connect!</span>
+            </div>
+            {/* Small arrow */}
+            <div className="absolute -top-1 left-1/2 transform -translate-x-1/2">
+              <div className="w-2 h-2 bg-gray-800 rotate-45 border-l border-t border-green-400/40"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  )
-);
-
+    )
+  );
 }

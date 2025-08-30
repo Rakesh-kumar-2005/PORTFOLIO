@@ -251,8 +251,14 @@ export function World(props: WorldProps) {
   const { globeConfig } = props;
   const scene = new Scene();
   scene.fog = new Fog(0xffffff, 400, 2000);
+  
   return (
-    <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)}>
+    <Canvas 
+      scene={scene} 
+      camera={{ position: [0, 0, cameraZ], fov: 50, near: 180, far: 1800 }}
+      gl={{ preserveDrawingBuffer: true }}
+      dpr={[1, 2]}
+    >
       <WebGLRendererConfig />
       <ambientLight color={globeConfig.ambientLight} intensity={0.6} />
       <directionalLight
@@ -272,6 +278,10 @@ export function World(props: WorldProps) {
       <OrbitControls
         enablePan={false}
         enableZoom={false}
+        enableRotate={true}
+        enableDamping={true}
+        dampingFactor={0.05}
+        target={[0, 0, 0]}
         minDistance={cameraZ}
         maxDistance={cameraZ}
         autoRotateSpeed={1}
@@ -282,7 +292,6 @@ export function World(props: WorldProps) {
     </Canvas>
   );
 }
-
 export function hexToRgb(hex: string) {
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
   hex = hex.replace(shorthandRegex, function (m, r, g, b) {
