@@ -41,19 +41,19 @@ const Hero = () => {
         {/* Top-right spotlight - Adjusted for mobile */}
         <Spotlight
           className="-top-10 sm:-top-20 -right-10 sm:-right-80 h-[65vh] sm:h-[85vh] w-[65vw] sm:w-[85vw]"
-          fill="rgba(236, 72, 153, 0.7)" // Vibrant Pink
+          fill="rgba(255, 241, 248, 0.7)" // Vibrant Pink
         />
 
         {/* Middle-left spotlight - Better mobile positioning */}
         <Spotlight
           className="top-1/3 sm:top-1/2 -left-5 sm:-left-20 h-[60vh] sm:h-[70vh] w-[60vw] sm:w-[70vw]"
-          fill="rgba(34, 211, 238, 0.8)" // Strong Cyan
+          fill="rgba(246, 167, 250, 0.8)" // Strong Cyan
         />
 
         {/* Bottom-right spotlight - Mobile friendly */}
         <Spotlight
           className="bottom-12 sm:bottom-24 right-10 sm:right-96 h-[70vh] sm:h-[90vh] w-[70vw] sm:w-[90vw]"
-          fill="rgba(152, 114, 240, 0.75)" // Neon Violet
+          fill="rgba(203, 185, 246, 0.75)" // Neon Violet
         />
       </div>
 
