@@ -13,7 +13,7 @@ export default function Home() {
       {/* Hero section - full width, no constraints */}
       <Hero />
       {/* Other sections with proper container */}
-      <div className="max-w-9xl w-full px-4 sm:px-28">
+      <div className="max-w-screen w-full px-4 sm:px-28">
         <Grid />
         {/* <RecentProjects />
         <Experience />
