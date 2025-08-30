@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { IoCopyOutline } from "react-icons/io5";
+import { useRef, useState } from "react";
+import { IoCheckmark, IoCopyOutline, IoThumbsUp } from "react-icons/io5";
 import Lottie from "react-lottie";
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBg";
@@ -9,6 +9,10 @@ import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "./MagicButton";
 import useIntersectionObserver from "./use-intersection-observer";
+import { FaThumbsUp } from "react-icons/fa6";
+import { BsHandThumbsUp } from "react-icons/bs";
+import { MdThumbUp } from "react-icons/md";
+import { HiOutlineThumbUp, HiThumbUp } from "react-icons/hi";
 
 export const BentoGrid = ({
   className,
@@ -53,9 +57,9 @@ export const BentoGridItem = ({
   const leftLists = ["ReactJS", "NextJS", "Typescript", "TailwindCSS"];
   const rightLists = ["SpringBoot", "Flutter", "Cloud", "MySQL"];
 
-  const [copied, setCopied] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [targetRef, isVisible] = useIntersectionObserver({ threshold: 0.3 });
+  const [copied, setCopied] = useState(false);
 
   const defaultOptions = {
     loop: copied,
@@ -66,15 +70,17 @@ export const BentoGridItem = ({
     },
   };
 
-  const handleCopy = () => {
-    const text = "mohantyrakesh802@gmail.com";
-    navigator.clipboard.writeText(text);
+
+const handleCopy = () => {
+  navigator.clipboard.writeText("yourmail@example.com").then(() => {
     setCopied(true);
 
+    // reset after delay so animations can replay next time
     setTimeout(() => {
       setCopied(false);
-    }, 3000);
-  };
+    }, 2000); 
+  });
+};
 
   return (
     <div
@@ -195,26 +201,67 @@ export const BentoGridItem = ({
           )}
 
           {id === 7 && (
-            <div className="mt-5 relative">
-              <div
-                className={`absolute -bottom-5 right-0 ${
-                  copied ? "block" : "hidden"
-                }`}
-              >
-                <Lottie options={defaultOptions} height={200} width={400} />
-              </div>
-
-              <MagicButton
-                title={copied ? "Email is Copied!" : "Copy my email address"}
-                icon={<IoCopyOutline />}
-                position="left"
-                handleClick={handleCopy}
-                otherClasses="!bg-[#161A31]"
-              />
-            </div>
+            <CopyEmailButton id={id} />
           )}
         </div>
       </div>
     </div>
   );
 };
+
+export default function CopyEmailButton({ id }: { id: number }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("yourmail@example.com").then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  return (
+    id === 7 && (
+      <div className="mt-5 relative flex flex-col items-center">
+        {/* Button */}
+        <div className="relative cursor-pointer">
+          <MagicButton
+            title={copied ? "Email is Copied!" : "Copy my email address"}
+            icon={
+              copied ? (
+                <IoCheckmark className="text-green-400" />
+              ) : (
+                <IoCopyOutline />
+              )
+            }
+            position="left"
+            handleClick={handleCopy}
+            otherClasses={`!bg-[#161A31] border transition-all duration-300 transform  cursor-pointer ${
+              copied
+                ? "border-green-400 shadow-md shadow-green-400/25"
+                : "border-transparent hover:border-purple-400 hover:shadow-md hover:shadow-purple-400/25"
+            }`}
+          />
+        </div>
+
+        <div
+          className={`absolute top-full mt-2 left-1/2 transform -translate-x-1/2 transition-all duration-300 ${
+            copied
+              ? "opacity-100 scale-100 translate-y-0"
+              : "opacity-0 scale-0 translate-y-2 pointer-events-none"
+          }`}
+        >
+          <div className="bg-black text-xs px-3 py-1.5 rounded-md shadow-md border-2 border-green-400/50 relative">
+            <div className="flex items-center gap-1">
+              <HiOutlineThumbUp className="text-green-400 text-sm" />
+              <span>Let&apos;s Connect!</span>
+            </div>
+            {/* Small arrow */}
+            <div className="absolute -top-1 left-1/2 transform -translate-x-1/2">
+              <div className="w-2 h-2 bg-gray-800 rotate-45 border-l border-t border-green-400/50"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  );
+}
