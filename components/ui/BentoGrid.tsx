@@ -70,17 +70,16 @@ export const BentoGridItem = ({
     },
   };
 
+  const handleCopy = () => {
+    navigator.clipboard.writeText("yourmail@example.com").then(() => {
+      setCopied(true);
 
-const handleCopy = () => {
-  navigator.clipboard.writeText("yourmail@example.com").then(() => {
-    setCopied(true);
-
-    // reset after delay so animations can replay next time
-    setTimeout(() => {
-      setCopied(false);
-    }, 2000); 
-  });
-};
+      // reset after delay so animations can replay next time
+      setTimeout(() => {
+        setCopied(false);
+      }, 2000);
+    });
+  };
 
   return (
     <div
@@ -200,9 +199,7 @@ const handleCopy = () => {
             </div>
           )}
 
-          {id === 7 && (
-            <CopyEmailButton id={id} />
-          )}
+          {id === 7 && <CopyEmailButton id={id} />}
         </div>
       </div>
     </div>
@@ -220,53 +217,50 @@ export default function CopyEmailButton({ id }: { id: number }) {
   };
 
   return (
-  id === 7 && (
-    <div className="mt-5 relative flex flex-col items-center">
-      {/* Button */}
-      <div className="relative cursor-pointer">
-        <MagicButton
-          title={copied ? "Email is Copied!" : "Copy my email address"}
-          icon={
-            copied ? (
-              <IoCheckmark className="text-green-400" />
-            ) : (
-              <IoCopyOutline />
-            )
-          }
-          position="left"
-          handleClick={handleCopy}
-          otherClasses={`!bg-[#161A31] border transition-all duration-300 transform cursor-pointer
-            text-[10px] sm:text-xs md:text-sm
-            px-2 sm:px-3 py-1.5
+    id === 7 && (
+      <div className="mt-5 relative flex flex-col items-center">
+        {/* Button */}
+        <div className="relative cursor-pointer">
+          <MagicButton
+            title={copied ? "Email is Copied!" : "Copy my email address"}
+            icon={
+              copied ? (
+                <IoCheckmark className="text-green-400" />
+              ) : (
+                <IoCopyOutline />
+              )
+            }
+            position="left"
+            handleClick={handleCopy}
+            otherClasses={`!bg-[#161A31] border transition-all duration-300 transform cursor-pointer text-[7px] sm:text-[10px] md:text-xs px-1.5 sm:px-2 py-1
             ${
-              copied
-                ? "border-green-400 shadow-md shadow-green-400/25"
-                : "border-transparent hover:border-purple-400 hover:shadow-md hover:shadow-purple-400/25"
+            copied
+            ? "border-green-400 shadow-md shadow-green-400/25"
+            : "border-transparent hover:border-purple-400 hover:shadow-md hover:shadow-purple-400/25"
             }`}
-        />
-      </div>
+          />
+        </div>
 
-      {/* Tooltip */}
-      <div
-        className={`absolute top-full mt-1 left-1/2 transform -translate-x-1/2 transition-all duration-300 ${
-          copied
-            ? "opacity-100 scale-100 translate-y-0"
-            : "opacity-0 scale-0 translate-y-2 pointer-events-none"
-        }`}
-      >
-        <div className="bg-black text-[9px] sm:text-[10px] md:text-xs px-2 py-1 rounded-md shadow-md border border-green-400/40 relative">
-          <div className="flex items-center gap-1">
-            <HiOutlineThumbUp className="text-green-400 text-[10px] sm:text-xs" />
-            <span>Let&apos;s Connect!</span>
-          </div>
-          {/* Small arrow */}
-          <div className="absolute -top-1 left-1/2 transform -translate-x-1/2">
-            <div className="w-2 h-2 bg-gray-800 rotate-45 border-l border-t border-green-400/40"></div>
+        {/* Tooltip */}
+        <div
+          className={`absolute top-full mt-3 left-1/2 transform -translate-x-1/2 transition-all duration-300 ${
+            copied
+              ? "opacity-100 scale-100 translate-y-0"
+              : "opacity-0 scale-0 translate-y-2 pointer-events-none"
+          }`}
+        >
+          <div className="bg-black text-[7px] sm:text-[10px] md:text-xs px-2 py-1 rounded-md shadow-md border border-green-400/40 relative">
+            <div className="flex items-center gap-1">
+              <HiOutlineThumbUp className="text-green-400 text-[10px] sm:text-xs" />
+              <span>Let&apos;s Connect!</span>
+            </div>
+            {/* Small arrow */}
+            <div className="absolute -top-1 left-1/2 transform -translate-x-1/2">
+              <div className="w-2 h-2 bg-gray-800 rotate-45 border-l border-t border-green-400/40"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  )
-);
-
+    )
+  );
 }
