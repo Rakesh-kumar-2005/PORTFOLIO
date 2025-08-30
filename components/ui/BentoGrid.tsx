@@ -233,7 +233,7 @@ export default function CopyEmailButton({ id }: { id: number }) {
           position="left"
           handleClick={handleCopy}
           otherClasses={`!bg-[#161A31] border transition-all duration-300 transform cursor-pointer
-            text-[12px] sm:text-[12px] md:text-[14px]
+            text-[8px] sm:text-[8px] md:text-[14px]
             px-1 sm:px-1.5 py-0.5 sm:py-1
             ${
               copied
@@ -251,9 +251,9 @@ export default function CopyEmailButton({ id }: { id: number }) {
             : "opacity-0 scale-0 translate-y-2 pointer-events-none"
         }`}
       >
-        <div className="bg-black text-[8px] sm:text-[8px] md:text-[12px] px-1.5 py-0.5 rounded-md shadow-md border border-green-400/40 relative">
+        <div className="bg-black text-[10px] sm:text-[10px] md:text-[12px] px-1.5 py-0.5 rounded-md shadow-md border border-green-400/40 relative">
           <div className="flex items-center gap-0.5">
-            <HiOutlineThumbUp className="text-green-400 text-[8px] sm:text-[8px] md:text-[12px]" />
+            <HiOutlineThumbUp className="text-green-400 text-[10px] sm:text-[10px] md:text-[12px]" />
             <span>Let&apos;s Connect!</span>
           </div>
           {/* Small arrow */}
