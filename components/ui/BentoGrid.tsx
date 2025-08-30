@@ -137,18 +137,13 @@ export const BentoGridItem = ({
           </div>
 
           <div
-            className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10 ${
-              id == 4 &&
-              "translate-y-0 sm:-translate-y-[200px] md:-translate-y-[280px] lg:-translate-y-[340px]"
-            } ${
+            className={`font-sans text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-72 xs:max-w-80 sm:max-w-96 font-bold z-10  ${
               id == 5 &&
-              "translate-x-0 sm:translate-x-[30px] md:translate-x-[35px] lg:translate-x-[48px]"
-            }
-            ${
+              "translate-x-0 xs:translate-x-[15px] sm:translate-x-[25px] md:translate-x-[35px] lg:translate-x-[48px]"
+            } ${
               id == 3 &&
-              "translate-y-0 sm:translate-y-[8px] md:translate-y-[15px] lg:translate-y-[24px]"
-            }
-            `}
+              "translate-y-0 xs:translate-y-[4px] sm:translate-y-[8px] md:translate-y-[15px] lg:translate-y-[24px]"
+            }`}
           >
             {title}
           </div>
