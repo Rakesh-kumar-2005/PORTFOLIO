@@ -222,12 +222,12 @@ export default function CopyEmailButton({ id }: { id: number }) {
       {/* Button */}
       <div className="relative text-[5px] sm:text-[10px] md:text-[10px] cursor-pointer">
         <MagicButton
-          title={copied ? "Email is Copied!" : "Copy my email address"}
+          title={copied ? "Email is Copied!" : "Copy my Email"}
           icon={
             copied ? (
-              <IoCheckmark className="text-green-400 text-[12px] sm:text-[12px] md:text-[16px]" />
+              <IoCheckmark className="text-green-400 text-[13px] sm:text-[13px] md:text-[16px]" />
             ) : (
-              <IoCopyOutline className="text-[12px] sm:text-[12px] md:text-[16px]" />
+              <IoCopyOutline className="text-[13px] sm:text-[13px] md:text-[16px]" />
             )
           }
           position="left"
