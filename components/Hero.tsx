@@ -32,23 +32,27 @@ const Hero = () => {
   return (
     <div className="relative overflow-hidden mb-auto sm:mb-10 min-h-screen w-full pb-10">
       <div className="pointer-events-none size-full">
+        {/* Top-left spotlight - Responsive positioning */}
         <Spotlight
-          className="-top-40 -left-32 h-[90vh] w-[90vw]"
+          className="-top-20 sm:-top-40 -left-10 sm:-left-32 h-[70vh] sm:h-[90vh] w-[70vw] sm:w-[90vw]"
           fill="rgba(99, 241, 239, 0.75)" // Bright Indigo
         />
 
+        {/* Top-right spotlight - Adjusted for mobile */}
         <Spotlight
-          className="-top-20 -right-80 h-[85vh] w-[85vw]"
+          className="-top-10 sm:-top-20 -right-10 sm:-right-80 h-[65vh] sm:h-[85vh] w-[65vw] sm:w-[85vw]"
           fill="rgba(236, 72, 153, 0.7)" // Vibrant Pink
         />
 
+        {/* Middle-left spotlight - Better mobile positioning */}
         <Spotlight
-          className="top-1/2 -left-20 h-[70vh] w-[70vw]"
+          className="top-1/3 sm:top-1/2 -left-5 sm:-left-20 h-[60vh] sm:h-[70vh] w-[60vw] sm:w-[70vw]"
           fill="rgba(34, 211, 238, 0.8)" // Strong Cyan
         />
 
+        {/* Bottom-right spotlight - Mobile friendly */}
         <Spotlight
-          className="bottom-24 right-96 h-[90vh] w-[90vw]"
+          className="bottom-12 sm:bottom-24 right-10 sm:right-96 h-[70vh] sm:h-[90vh] w-[70vw] sm:w-[90vw]"
           fill="rgba(152, 114, 240, 0.75)" // Neon Violet
         />
       </div>
