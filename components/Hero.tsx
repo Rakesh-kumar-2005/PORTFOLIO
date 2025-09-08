@@ -138,7 +138,7 @@ const Hero = () => {
             <div
               className={`flex justify-center lg:justify-start ${styles.fadeInUpButtons}`}
             >
-              <a href="#about" className="group">
+              <a href="mailto:contact@jsmastery.pro" className="group">
                 <div className="relative inline-flex h-12 sm:h-14 lg:h-16 overflow-hidden group rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 transition-all duration-500 hover:scale-110 hover:shadow-lg hover:shadow-fuchsia-400/50">
                   <span className="absolute inset-[-1000%] group-hover:animate-[spin_1s_linear_infinite] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#f29cf7_0%,#393BB2_50%,#f29cf7_100%)]" />
                   <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-6 sm:px-8 lg:px-10 py-1 text-sm sm:text-base lg:text-lg font-semibold text-white backdrop-blur-3xl transition-colors">
